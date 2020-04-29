@@ -6,6 +6,7 @@ VOLUME /tmp
 
 # внешний порт, по которому наше приложение будет доступно извне
 EXPOSE 8080
+EXPOSE 8080
 
 #Install git
 RUN apt-get update        
