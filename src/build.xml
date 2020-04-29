@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project default="dist" name="SeaBattle">
+    <description>A simple Java project</description>
+    <property name="srcDir" location="C:\Users\User\Desktop\УЧЕБА\ProgramByBeyts\SeaBattle\src"/>
+    <property name="buildDir" location="C:\Users\User\Desktop\УЧЕБА\ProgramByBeyts\SeaBattle\build"/>
+    <property name="distDir" location="C:\Users\User\Desktop\УЧЕБА\ProgramByBeyts\SeaBattle\dist"/>
+    <target name="init">
+        <tstamp/>
+        <mkdir dir="${buildDir}"/>
+        <mkdir dir="${distDir}"/>
+    </target>
+    <target name="compile" depends="init">
+        <javac srcdir="${srcDir}" destdir="${buildDir}"/>
+    </target>
+    <target name="dist" depends="compile">
+        <jar destfile="${distDir}/package-${DSTAMP}.jar" basedir="${buildDir}">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Main-Class" value="SeaBattle.src.DotComBust"/>
+            </manifest>
+        </jar>
+        <jar destfile="${distDir}/package-src-${DSTAMP}.jar" basedir="${srcDir}"/>
+    </target>
+    <target name="clean">
+        <delete dir="${buildDir}"/>
+        <delete dir="${distDir}"/>
+    </target> </project>
